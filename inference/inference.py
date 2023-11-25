@@ -28,7 +28,20 @@ def get_termins(text):
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    sentences = re(". |? |! ", text)
+    sentences = text.replace('! ', '. ').replace('? ', '. ').split('. ')
+
+    sentences_new = []
+
+    for i in range(len(sentences)):
+      if len(sentences[i])>=512:
+        for j in range(len(sentences[i])//512+1):
+          sentences_new.append(sentences[i][512*j:512*(j+1)])
+      else:
+        sentences_new.append(sentences[i])
+
+    sentences = sentences_new.copy()
+
+    
     for i in range(len(sentences)):
         sentences[i] = re.sub("\xa0", " ", sentences[i])
 
@@ -37,7 +50,7 @@ def get_termins(text):
     for article in sentences:
 
         inputs = tokenizer_ru_en(article, return_tensors="pt")
-        translated_tokens = model_ru_en.generate(**inputs, max_length=600)
+        translated_tokens = model_ru_en.generate(**inputs, max_length=512)
 
         sentences_en.append(
             tokenizer_ru_en.batch_decode(translated_tokens, skip_special_tokens=True)[0]
@@ -265,7 +278,7 @@ def get_termins(text):
                 inputs = tokenizer_en_ru(f"'{term}': '{definition}'", return_tensors="pt")
 
                 translated_tokens = model_en_ru.generate(
-                  **inputs, max_length=600
+                  **inputs, max_length=512
                 )
 
                 final_glossary.append(tokenizer_en_ru.batch_decode(translated_tokens, skip_special_tokens=True)[0])
