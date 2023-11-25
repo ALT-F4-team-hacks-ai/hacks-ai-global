@@ -279,13 +279,15 @@ def inference_termins(filename):
   result_text = result["text"]
   #2. выделяем термины
   termins = get_termins(result_text)
+  new_termins = []
   for termin in termins: 
     termin = re.sub("'", "", termin)
     termin = re.sub("\"", "", termin)
+    new_termins.append(termin)
 
   final_results_dict = {"File" : [], "Term" : []}
-  for i in range(len(termins)):
-    termin = termins[i].split(":")[0]
+  for i in range(len(new_termins)):
+    termin = new_termins[i].split(":")[0]
     final_results_dict["File"].append(filename)
     final_results_dict["Term"].append(termin)
 
