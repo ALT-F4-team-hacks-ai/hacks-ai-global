@@ -1,0 +1,8 @@
+pandas
+numpy
+openai-whisper
+ffmpeg
+sentencepiece
+transformers
+torch
+tqdm
