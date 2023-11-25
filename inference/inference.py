@@ -291,7 +291,7 @@ def inference_termins(filename):
 
   return pd.DataFrame.from_dict(final_results_dict)
 
-filename = "audio6.mp3"
+filename = ""
 audi="data/" + filename
 result_df = inference_termins(audi)
 result_df["File"] = filename
