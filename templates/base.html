@@ -18,9 +18,19 @@
                 Выйти
         </button></a></div>
         <div class="headerbuttons1">
+            <a href="/createnewclass" class="violettext">
+            <button class="loginbutton">
+                Новый конспект
+            </button></a></div>
+        <div class="headerbuttons1">
             <a href="/profile/{{ current_user.id }}" class="violettext">
             <button class="loginbutton">
                 {{ current_user.name }}
+        </button></a></div>
+        <div class="headerbuttons1">
+            <a href="/glossary/{{ current_user.id }}" class="violettext">
+                <button class="loginbutton">
+                    Глоссарий
         </button></a></div>
     </div></div>
     {% else %}
