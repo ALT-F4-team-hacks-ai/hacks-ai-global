@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+    {% block content %}
+    <center>
+    <div class="formmain" style="height: 300px">
+        <form method=post enctype=multipart/form-data>
+            <p>
+            {{ form.title(class="titleform", placeholder="Заголовок") }}
+            {% for error in form.title.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+            </p>
+    {{message}}
+      <input style="drop-container" type=file name=file>
+      <p>{{ form.is_private() }} {{ form.is_private.label(class="violettext") }}</p>
+      <input class="loginbutton" style="margin-bottom: 10px" type=submit value=Загрузить>
+    </form>
+    </div>
+    </center>
+{% endblock %})

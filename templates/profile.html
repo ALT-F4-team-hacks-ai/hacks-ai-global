@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="satodsan-uvemopag">
+    <h1>Мои конспекты:</h1>
+</div>
+{% for item in classes%}
+    <div>
+        <a class="profblocks" href="/classes/{{ item.id }}">
+            <p class="classesproftext">
+                {{item.title}}
+            </p>
+            {% if item.is_private %}
+            <p class="violettext" style="font-weight: 900; color: black">Приватная лекция</p>
+            {% else %}
+            {% endif %}
+            <p class="violettext">Дата загрузки - {{item.created_date}}</p>
+        </a>
+    </div>
+{% endfor %}
+{% endblock %}
