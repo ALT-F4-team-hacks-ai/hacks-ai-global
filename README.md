@@ -20,3 +20,11 @@
 4. Вставить имя файла <a href="#">сюда</a>
 5. Запустить инференс модули - `python inference.py`
 6. Получить результат в качестве .csv файла в папке <i>result</i>
+
+### Инструкция по запуску веб-сайта:
+
+<span>!!! Для корректной транскрибации на CPU необходимо установить `conda`. </span>
+<span>После установки выполнить команду `conda install -c conda-forge ffmpeg`</span>
+
+1. Команда `pip install -r requirements.txt`
+2. Команда `python main.py`
