@@ -3,7 +3,7 @@ import sqlite3
 
 from flask import Flask, render_template, redirect, request, abort, flash, url_for
 from werkzeug.utils import secure_filename
-from sr import TextProcesso
+from pipeline import TextProcessor
 from data import db_session
 from data.users import User
 from data.classes import Classes, ClassesForm
