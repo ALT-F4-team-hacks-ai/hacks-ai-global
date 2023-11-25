@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+    {% block content %}
+    <body>
+    <div class="satodsan-uvemopag">
+        <h1>Ваш конспект готов!</h1>
+    </div>
+        <div class="regform" style="padding-top: 0%; flex-direction: row;">
+            <audio controls src="/static/il/{{audio}}">
+                <a href="/static/il/{{audio}}"> Download audio </a>
+            </audio>
+        </div>
+        <div class="privateform">
+            <form method=post enctype=multipart/form-data>
+                <p>{{ form.is_private() }} {{ form.is_private.label(class="violettext") }}</p>
+                <input class="loginbutton" style="margin-bottom: 10px" name="submit" type=submit value=Подтвердить>
+            </form>
+        </div><div>
+            <p class="maintext" style="margin-top: 10px; margin-bottom: 10px; border-color: white; font-size: 20px">{{ text }}</p>
+        </div>
+    <div class="profblocks1">
+        <p class="classesproftext" style="font-size: 40px">Глоссарий</p>
+
+        <div>
+            <a class="loginbutton" style="margin-bottom: 10px" href="/addtoglossary">Добавить определения в глоссарий</a>
+    {% for term, i in terms%}
+        <p class="classesproftext">
+            {{term}}
+        </p>
+        <p>{{i}}</p>
+     {% endfor %}
+    </div>
+
+    </div>
+    </body>
+{% endblock %})

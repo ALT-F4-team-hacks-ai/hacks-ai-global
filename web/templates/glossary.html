@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="profblocks1">
+    <p class="classesproftext" style="font-size: 40px">Глоссарий</p>
+    <div>
+{% for term, i in glossary%}
+    <p class="classesproftext">
+        {{term}}
+    </p>
+    <p>{{i}}</p>
+ {% endfor %}
+{% endblock %}
